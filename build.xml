@@ -2,9 +2,44 @@
   <property file="build.properties"/>
   <property environment="env"/>
   <property name="hostname" value="${env.HOSTNAME}"/>
+  <property name="home" value="${env.HOME}"/>
 
   <target name="proxy">
     <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
   </target>
+
+  <target name="all" depends="clean, init, eclipse, wtp"/>
+
+  <target name="clean"/>
+  <target name="init"/>
+
+  <target name="eclipse" depends="eclipse-win32, eclipse-macosx32, eclipse-linux32"/>
+
+  <target name="eclipse-win32">
+    <mkdir dir="${home}/win32"/>
+    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-win32_prefix}.zip" dest="${tmp}/${eclipse-win32_prefix}.zip"/>
+    <unzip src="${tmp}/${eclipse-win32_prefix}.zip" dest="${home}/win32"/>
+  </target>
+
+  <target name="eclipse-macosx32">
+    <mkdir dir="${home}/macosx32"/>
+    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-macosx32_prefix}.tar.gz" dest="${tmp}/${eclipse-macosx32_prefix}.tar.gz"/>
+    <untar src="${tmp}/${eclipse-macosx32_prefix}.tar.gz" dest="${home}/macosx32" compression="gzip"/>
+  </target>
+
+  <target name="eclipse-linux32">
+    <mkdir dir="${home}/linux32"/>
+    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-linux32_prefix}.tar.gz" dest="${tmp}/${eclipse-linux32_prefix}.tar.gz"/>
+    <untar src="${tmp}/${eclipse-linux32_prefix}.tar.gz" dest="${home}/linux32" compression="gzip"/>
+  </target>
+
+  <target name="wtp">
+    <get src="http://${ftp_site}/pub/eclipse/webtools/downloads/drops/R3.4.0/R-3.4.0-20120612174739/wtp4x-repo-R-3.4.0-20120612174739.zip" dest="${tmp}/${wtp_prefix}.zip"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/win32"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/macosx32"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}linux32"/>
+  </target>
+
+  
 
 </project>
