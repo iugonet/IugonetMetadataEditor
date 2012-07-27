@@ -1,0 +1,10 @@
+<project name="Iugonet Metadata Editor" default="all" basedir=".">
+  <property file="build.properties"/>
+  <property environment="env"/>
+  <property name="hostname" value="${env.HOSTNAME}"/>
+
+  <target name="proxy">
+    <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
+  </target>
+
+</project>
