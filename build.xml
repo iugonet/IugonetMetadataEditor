@@ -8,38 +8,59 @@
     <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
   </target>
 
-  <target name="all" depends="clean, init, eclipse, wtp"/>
+  <target name="all" depends="clean, init, eclipse, wtp, icon, pack"/>
 
-  <target name="clean"/>
+  <target name="clean">
+    <delete dir="${home}/win32"/>
+    <delete dir="${home}/macosx32"/>
+    <delete dir="${home}/linux32"/>
+  </target>
   <target name="init"/>
 
   <target name="eclipse" depends="eclipse-win32, eclipse-macosx32, eclipse-linux32"/>
 
   <target name="eclipse-win32">
     <mkdir dir="${home}/win32"/>
-    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-win32_prefix}.zip" dest="${tmp}/${eclipse-win32_prefix}.zip"/>
+    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-win32_prefix}.zip" dest="${tmp}/${eclipse-win32_prefix}.zip" usetimestamp="true"/>
     <unzip src="${tmp}/${eclipse-win32_prefix}.zip" dest="${home}/win32"/>
   </target>
 
   <target name="eclipse-macosx32">
     <mkdir dir="${home}/macosx32"/>
-    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-macosx32_prefix}.tar.gz" dest="${tmp}/${eclipse-macosx32_prefix}.tar.gz"/>
+    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-macosx32_prefix}.tar.gz" dest="${tmp}/${eclipse-macosx32_prefix}.tar.gz" usetimestamp="true"/>
     <untar src="${tmp}/${eclipse-macosx32_prefix}.tar.gz" dest="${home}/macosx32" compression="gzip"/>
   </target>
 
   <target name="eclipse-linux32">
     <mkdir dir="${home}/linux32"/>
-    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-linux32_prefix}.tar.gz" dest="${tmp}/${eclipse-linux32_prefix}.tar.gz"/>
+    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-linux32_prefix}.tar.gz" dest="${tmp}/${eclipse-linux32_prefix}.tar.gz" usetimestamp="true"/>
     <untar src="${tmp}/${eclipse-linux32_prefix}.tar.gz" dest="${home}/linux32" compression="gzip"/>
   </target>
 
   <target name="wtp">
-    <get src="http://${ftp_site}/pub/eclipse/webtools/downloads/drops/R3.4.0/R-3.4.0-20120612174739/wtp4x-repo-R-3.4.0-20120612174739.zip" dest="${tmp}/${wtp_prefix}.zip"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/win32"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/macosx32"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}linux32"/>
+    <get src="http://${ftp_site}/pub/eclipse/webtools/downloads/drops/R3.4.0/R-3.4.0-20120612174739/wtp4x-repo-R-3.4.0-20120612174739.zip" dest="${tmp}/${wtp_prefix}.zip" usetimestamp="true"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/win32/eclipse" overwrite="true"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/macosx32/eclipse"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/linux32/eclipse"/>
   </target>
 
+  <target name="icon">
+    <copy todir="${home}/win32/eclipse">
+      <fileset dir="eclipse"/>
+    </copy>
+    <copy todir="${home}/macosx32/eclipse">
+      <fileset dir="eclipse"/>
+    </copy>
+    <copy todir="${home}/linux32/eclipse">
+      <fileset dir="eclipse"/>
+    </copy>
+  </target>
+
+  <target name="pack">
+    <zip destfile="${home}/win32/iugonet-metadata-editor-win32.zip" basedir="${home}/win32/eclipse"/>
+    <zip destfile="${home}/macosx32/iugonet-metadata-editor-macosx32.zip" basedir="${home}/macosx32/eclipse"/>
+    <zip destfile="${home}/linux32/iugonet-metadata-editor-linux32.zip" basedir="${home}/linux32/eclipse"/>
+  </target>
   
 
 </project>
