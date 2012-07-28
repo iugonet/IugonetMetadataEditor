@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_cFYQsdiZEeGiJ6u3G2eMHA" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_cFYQstiZEeGiJ6u3G2eMHA" bindingContexts="_cFYQu9iZEeGiJ6u3G2eMHA">
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_cFYQstiZEeGiJ6u3G2eMHA" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_cg8yYtiZEeGiJ6u3G2eMHA" label="%trimmedwindow.label.eclipseSDK" x="0" y="25" width="1004" height="718">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_cFYQstiZEeGiJ6u3G2eMHA" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_cg8yYtiZEeGiJ6u3G2eMHA" label="%trimmedwindow.label.eclipseSDK" x="0" y="25" width="1002" height="718">
     <tags>topLevel</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_cg8yYtiZEeGiJ6u3G2eMHA" selectedElement="_cg9ZcNiZEeGiJ6u3G2eMHA" horizontal="true">
       <children xsi:type="advanced:PerspectiveStack" xmi:id="_cg9ZcNiZEeGiJ6u3G2eMHA" elementId="PerspectiveStack" containerData="7500" selectedElement="_U4_HkNj-EeGSSciEsVL9Gg">
@@ -128,7 +128,7 @@
           <tags>persp.viewSC:org.eclipse.ui.views.ProgressView</tags>
           <tags>persp.perspSC:org.eclipse.debug.ui.DebugPerspective</tags>
           <tags>persp.perspSC:org.eclipse.ui.resourcePerspective</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_U4_Hkdj-EeGSSciEsVL9Gg" selectedElement="_U4_uotj-EeGSSciEsVL9Gg" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_U4_Hkdj-EeGSSciEsVL9Gg" selectedElement="_U4_uoNj-EeGSSciEsVL9Gg" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_U4_uoNj-EeGSSciEsVL9Gg" elementId="topLeft" containerData="2300" selectedElement="_U4_uodj-EeGSSciEsVL9Gg">
               <tags>newtablook</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_U4_uodj-EeGSSciEsVL9Gg" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_c2EGwNiZEeGiJ6u3G2eMHA"/>
