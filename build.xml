@@ -38,10 +38,10 @@
   </target>
 
   <target name="wtp">
-    <get src="http://${ftp_site}/pub/eclipse/webtools/downloads/drops/R3.4.0/R-3.4.0-20120612174739/wtp4x-repo-R-3.4.0-20120612174739.zip" dest="${tmp}/${wtp_prefix}.zip" usetimestamp="true"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/win32/eclipse" overwrite="true"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/macosx32/eclipse"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/linux32/eclipse"/>
+    <get src="http://${ftp_site}/pub/eclipse/webtools/downloads/drops/R3.4.0/R-3.4.0-20120612174739/${wtp_prefix}.zip" dest="${tmp}/${wtp_prefix}.zip" usetimestamp="true"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/win32" overwrite="true"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/macosx32" overwrite="true"/>
+    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/linux32" overwrite="true"/>
   </target>
 
   <target name="icon">
@@ -58,8 +58,11 @@
 
   <target name="pack">
     <zip destfile="${home}/win32/iugonet-metadata-editor-win32.zip" basedir="${home}/win32/eclipse"/>
+    <delete dir="${home}/win32/eclipse"/>
     <zip destfile="${home}/macosx32/iugonet-metadata-editor-macosx32.zip" basedir="${home}/macosx32/eclipse"/>
+    <delete dir="${home}/macosx32/eclipse"/>
     <zip destfile="${home}/linux32/iugonet-metadata-editor-linux32.zip" basedir="${home}/linux32/eclipse"/>
+    <delete dir="${home}/linux32/eclipse"/>
   </target>
   
 
