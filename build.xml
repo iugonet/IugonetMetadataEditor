@@ -8,7 +8,7 @@
     <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
   </target>
 
-  <target name="all" depends="clean, init, eclipse, wtp, emf, SWeDE, icon, pack"/>
+  <target name="all" depends="clean, init, eclipse, icon, pack"/>
 
   <target name="clean">
     <delete dir="${home}/win32"/>
@@ -21,44 +21,23 @@
 
   <target name="eclipse-win32">
     <mkdir dir="${home}/win32"/>
-    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-win32_prefix}.zip" dest="${tmp}/${eclipse-win32_prefix}.zip" usetimestamp="true"/>
+    <get src="http://${ftp_site}/pub/eclipse//technology/epp/downloads/release/juno/R/${eclipse-win32_prefix}.zip" dest="${tmp}/${eclipse-win32_prefix}.zip" usetimestamp="true"/>
     <unzip src="${tmp}/${eclipse-win32_prefix}.zip" dest="${home}/win32"/>
   </target>
 
   <target name="eclipse-macosx32">
     <mkdir dir="${home}/macosx32"/>
-    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-macosx32_prefix}.tar.gz" dest="${tmp}/${eclipse-macosx32_prefix}.tar.gz" usetimestamp="true"/>
+    <get src="http://${ftp_site}/pub/eclipse//technology/epp/downloads/release/juno/R/${eclipse-macosx32_prefix}.tar.gz" dest="${tmp}/${eclipse-macosx32_prefix}.tar.gz" usetimestamp="true"/>
     <untar src="${tmp}/${eclipse-macosx32_prefix}.tar.gz" dest="${home}/macosx32" compression="gzip"/>
   </target>
 
   <target name="eclipse-linux32">
     <mkdir dir="${home}/linux32"/>
-    <get src="http://${ftp_site}/pub/eclipse/eclipse/downloads/drops4/R-4.2-201206081400/${eclipse-linux32_prefix}.tar.gz" dest="${tmp}/${eclipse-linux32_prefix}.tar.gz" usetimestamp="true"/>
+    <get src="http://${ftp_site}/pub/eclipse//technology/epp/downloads/release/juno/R/${eclipse-linux32_prefix}.tar.gz" dest="${tmp}/${eclipse-linux32_prefix}.tar.gz" usetimestamp="true"/>
     <untar src="${tmp}/${eclipse-linux32_prefix}.tar.gz" dest="${home}/linux32" compression="gzip"/>
     <exec executable="chmod">
       <arg line="+x ${home}/linux32/eclipse/eclipse ${home}/linux32/eclipse/libcairo-swt.so"/>
     </exec>
-  </target>
-
-  <target name="wtp">
-    <get src="http://${ftp_site}/pub/eclipse/webtools/downloads/drops/R3.4.0/R-3.4.0-20120612174739/${wtp_prefix}.zip" dest="${tmp}/${wtp_prefix}.zip" usetimestamp="true"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/win32" overwrite="true"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/macosx32" overwrite="true"/>
-    <unzip src="${tmp}/${wtp_prefix}.zip" dest="${home}/linux32" overwrite="true"/>
-  </target>
-
-  <target name="emf">
-    <get src="http://${ftp_site}/pub/eclipse/modeling/emf/emf/downloads/drops/2.8.0/R201206080554/${emf_prefix}.zip" dest="${tmp}/${emf_prefix}.zip" usetimestamp="true"/>
-    <unzip src="${tmp}/${emf_prefix}.zip" dest="${home}/win32" overwrite="true"/>
-    <unzip src="${tmp}/${emf_prefix}.zip" dest="${home}/macosx32" overwrite="true"/>
-    <unzip src="${tmp}/${emf_prefix}.zip" dest="${home}/linux32" overwrite="true"/>
-  </target>
-
-  <target name="SWeDE">
-    <get src="http://projects.semwebcentral.org/frs/download.php/218/${SWeDE_prefix}.zip" dest="${tmp}/${SWeDE_prefix}.zip" usetimestamp="true"/>
-    <unzip src="${tmp}/${SWeDE_prefix}.zip" dest="${home}/win32/eclipse" overwrite="true"/>
-    <unzip src="${tmp}/${SWeDE_prefix}.zip" dest="${home}/macosx32/eclipse" overwrite="true"/>
-    <unzip src="${tmp}/${SWeDE_prefix}.zip" dest="${home}/linux32/eclipse" overwrite="true"/>
   </target>
 
   <target name="icon">
