@@ -1,1 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<p:Spase xmlns:p="http://www.iugonet.org/data/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.iugonet.org/data/schema ../Xsd/iugonet-1_0_3.xsd ">
+  <p:Version>1.0.3</p:Version>
+  <p:Granule>
+  	<p:ResourceID>p:ResourceID</p:ResourceID>
+  	<p:ReleaseDate>2001-12-31T12:00:00</p:ReleaseDate>
+  	<p:ParentID>p:ParentID</p:ParentID>
+  	<p:StartDate>2001-12-31T12:00:00</p:StartDate>
+  	<p:StopDate>2001-12-31T12:00:00</p:StopDate>
+  	<p:Source>
+  		<p:SourceType>Ancillary</p:SourceType>
+  		<p:URL>p:URL</p:URL>
+  	</p:Source>
+  </p:Granule>
+</p:Spase>

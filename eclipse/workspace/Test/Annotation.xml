@@ -1,1 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<p:Spase xmlns:p="http://www.iugonet.org/data/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.iugonet.org/data/schema ../Xsd/iugonet-1_0_3.xsd ">
+  <p:Version>1.0.3</p:Version>
+  <p:Annotation>
+  	<p:ResourceID>p:ResourceID</p:ResourceID>
+  	<p:ResourceHeader>
+  		<p:ResourceName>p:ResourceName</p:ResourceName>
+  		<p:ReleaseDate>2001-12-31T12:00:00</p:ReleaseDate>
+  		<p:Description>p:Description</p:Description>
+  		<p:Contact>
+  			<p:PersonID>p:PersonID</p:PersonID>
+  			<p:Role>ArchiveSpecialist</p:Role>
+  		</p:Contact>
+  	</p:ResourceHeader>
+  	<p:AnnotationType>Anomaly</p:AnnotationType>
+  </p:Annotation>
+</p:Spase>
