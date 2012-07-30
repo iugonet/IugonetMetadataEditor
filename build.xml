@@ -80,6 +80,6 @@
     <delete dir="${home}/macosx32/eclipse"/>
     <zip destfile="${home}/linux32/iugonet-metadata-editor-linux32.zip" basedir="${home}/linux32/eclipse"/>
     <delete dir="${home}/linux32/eclipse"/>
-  </target>  
+  </target>
 
 </project>
