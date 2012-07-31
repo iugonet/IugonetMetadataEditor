@@ -41,16 +41,16 @@
   </target>
 
   <target name="icon">
-    <copy todir="${home}/win32/eclipse">
+    <copy todir="${home}/win32/eclipse" overwrite="true">  
       <fileset dir="eclipse"/>
     </copy>
-    <copy todir="${home}/macosx32/eclipse">
+    <copy todir="${home}/macosx32/eclipse" overwrite="true">
       <fileset dir="eclipse"/>
     </copy>
-    <copy todir="${home}/linux32/eclipse">
+    <copy todir="${home}/linux32/eclipse" overwrite="true">
       <fileset dir="eclipse"/>
     </copy>
-    <copy todir="${home}/linux32/eclipse">
+    <copy todir="${home}/linux32/eclipse" overwrite="true">
       <fileset dir="eclipse-linux32-only"/>
     </copy>
   </target>
