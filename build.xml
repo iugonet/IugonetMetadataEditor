@@ -50,6 +50,9 @@
     <copy todir="${home}/linux32/eclipse">
       <fileset dir="eclipse"/>
     </copy>
+    <copy todir="${home}/linux32/eclipse">
+      <fileset dir="eclipse-linux32-only"/>
+    </copy>
   </target>
 
   <target name="pack">
