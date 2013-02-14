@@ -7,7 +7,7 @@
 
   <target name="all" depends="clean, init, eclipse, icon, pack"/>
 
-  <target name="clean">
+  <target name="clean" description="Clean all.">
     <delete dir="${home}/win32"/>
     <delete dir="${home}/macosx32"/>
     <delete dir="${home}/linux32"/>
@@ -16,19 +16,19 @@
 
   <target name="eclipse" depends="eclipse-win32, eclipse-macosx32, eclipse-linux32"/>
 
-  <target name="eclipse-win32">
+  <target name="eclipse-win32" description="Create eclipse-win32">
     <mkdir dir="${home}/win32"/>
     <get src="http://${ftp_site}/pub/eclipse//technology/epp/downloads/release/juno/R/${eclipse-win32_prefix}.zip" dest="${tmp}/${eclipse-win32_prefix}.zip" usetimestamp="true"/>
     <unzip src="${tmp}/${eclipse-win32_prefix}.zip" dest="${home}/win32"/>
   </target>
 
-  <target name="eclipse-macosx32">
+  <target name="eclipse-macosx32" description="Create eclipse-macosx32">
     <mkdir dir="${home}/macosx32"/>
     <get src="http://${ftp_site}/pub/eclipse//technology/epp/downloads/release/juno/R/${eclipse-macosx32_prefix}.tar.gz" dest="${tmp}/${eclipse-macosx32_prefix}.tar.gz" usetimestamp="true"/>
     <untar src="${tmp}/${eclipse-macosx32_prefix}.tar.gz" dest="${home}/macosx32" compression="gzip"/>
   </target>
 
-  <target name="eclipse-linux32">
+  <target name="eclipse-linux32" description="Create eclipse-linux32">
     <mkdir dir="${home}/linux32"/>
     <get src="http://${ftp_site}/pub/eclipse//technology/epp/downloads/release/juno/R/${eclipse-linux32_prefix}.tar.gz" dest="${tmp}/${eclipse-linux32_prefix}.tar.gz" usetimestamp="true"/>
     <untar src="${tmp}/${eclipse-linux32_prefix}.tar.gz" dest="${home}/linux32" compression="gzip"/>
@@ -37,7 +37,7 @@
     </exec>
   </target>
 
-  <target name="icon">
+  <target name="icon" description="Install icon">
     <copy todir="${home}/win32/eclipse" overwrite="true">  
       <fileset dir="eclipse"/>
     </copy>
@@ -52,7 +52,7 @@
     </copy>
   </target>
 
-  <target name="pack">
+  <target name="pack" description="Pack">
     <zip destfile="${home}/win32/iugonet-metadata-editor-win32.zip" basedir="${home}/win32/eclipse"/>
     <delete dir="${home}/win32/eclipse"/>
     <zip destfile="${home}/macosx32/iugonet-metadata-editor-macosx32.zip" basedir="${home}/macosx32/eclipse"/>
