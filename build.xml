@@ -12,7 +12,6 @@
     <delete dir="${home}/macosx32"/>
     <delete dir="${home}/linux32"/>
   </target>
-  <target name="init"/>
 
   <target name="eclipse" depends="eclipse-win32, eclipse-macosx32, eclipse-linux32"/>
 
