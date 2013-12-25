@@ -13,6 +13,10 @@
     <delete dir="${home}/linux32"/>
   </target>
 
+  <target name="init" description="Initialize">
+
+  </target>
+
   <target name="eclipse" depends="eclipse-win32, eclipse-macosx32, eclipse-linux32"/>
 
   <target name="eclipse-win32" description="Create eclipse-win32">
