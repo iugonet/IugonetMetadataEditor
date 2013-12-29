@@ -14,7 +14,7 @@
   </target>
 
   <target name="init" description="Initialize">
-
+    <mkdir dir="${src}" />
   </target>
 
   <target name="eclipse" depends="eclipse_win32, eclipse_macosx32, eclipse_linux32"/>
