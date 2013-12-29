@@ -9,15 +9,18 @@
 
   <target name="clean" description="Clean all.">
     <delete dir="${home}/win32"/>
+    <delete dir="${home}/win64"/>
     <delete dir="${home}/macosx32"/>
+    <delete dir="${home}/macosx64"/>
     <delete dir="${home}/linux32"/>
+    <delete dir="${home}/linux64"/>
   </target>
 
   <target name="init" description="Initialize">
     <mkdir dir="${src}" />
   </target>
 
-  <target name="eclipse" depends="eclipse_win32, eclipse_macosx32, eclipse_linux32"/>
+  <target name="eclipse" depends="eclipse_win32, eclipse_win64, eclipse_macosx32, eclipse_macosx64, eclipse_linux32, eclipse_linux64"/>
 
   <target name="eclipse_win32" description="Create eclipse_win32">
     <mkdir dir="${home}/win32"/>
@@ -25,10 +28,22 @@
     <unzip src="${dst_eclipse_win32}" dest="${home}/win32"/>
   </target>
 
+  <target name="eclipse_win64" description="Create eclipse_win64">
+    <mkdir dir="${home}/win64"/>
+    <get src="${src_eclipse_win64}" dest="${dst_eclipse_win64}" usetimestamp="true"/>
+    <unzip src="${dst_eclipse_win64}" dest="${home}/win64"/>
+  </target>
+
   <target name="eclipse_macosx32" description="Create eclipse_macosx32">
     <mkdir dir="${home}/macosx32"/>
     <get src="${src_eclipse_macosx32}" dest="${dst_eclipse_macosx32}" usetimestamp="true"/>
     <untar src="${dst_eclipse_macosx32}" dest="${home}/macosx32" compression="gzip"/>
+  </target>
+
+  <target name="eclipse_macosx64" description="Create eclipse_macosx64">
+    <mkdir dir="${home}/macosx64"/>
+    <get src="${src_eclipse_macosx64}" dest="${dst_eclipse_macosx64}" usetimestamp="true"/>
+    <untar src="${dst_eclipse_macosx64}" dest="${home}/macosx64" compression="gzip"/>
   </target>
 
   <target name="eclipse_linux32" description="Create eclipse_linux32">
@@ -40,28 +55,53 @@
     </exec>
   </target>
 
+  <target name="eclipse_linux64" description="Create eclipse_linux64">
+    <mkdir dir="${home}/linux64"/>
+    <get src="${src_eclipse_linux64}" dest="${dst_eclipse_linux64}" usetimestamp="true"/>
+    <untar src="${dst_eclipse_linux64}" dest="${home}/linux64" compression="gzip"/>
+    <exec executable="chmod">
+      <arg line="+x ${home}/linux64/eclipse/eclipse ${home}/linux64/eclipse/libcairo-swt.so"/>
+    </exec>
+  </target>
+
   <target name="icon" description="Install icon">
     <copy todir="${home}/win32/eclipse" overwrite="true">  
       <fileset dir="eclipse"/>
     </copy>
+    <copy todir="${home}/win64/eclipse" overwrite="true">  
+      <fileset dir="eclipse"/>
+    </copy>
+
     <copy todir="${home}/macosx32/eclipse" overwrite="true">
       <fileset dir="eclipse"/>
     </copy>
+    <copy todir="${home}/macosx64/eclipse" overwrite="true">
+      <fileset dir="eclipse"/>
+    </copy>
+
     <copy todir="${home}/linux32/eclipse" overwrite="true">
       <fileset dir="eclipse"/>
     </copy>
-    <copy todir="${home}/linux32/eclipse" overwrite="true">
-      <fileset dir="eclipse-linux32-only"/>
+    <copy todir="${home}/linux64/eclipse" overwrite="true">
+      <fileset dir="eclipse"/>
     </copy>
   </target>
 
   <target name="pack" description="Pack">
     <zip destfile="${home}/win32/iugonet-metadata-editor-win32.zip" basedir="${home}/win32/eclipse"/>
     <delete dir="${home}/win32/eclipse"/>
+    <zip destfile="${home}/win64/iugonet-metadata-editor-win64.zip" basedir="${home}/win64/eclipse"/>
+    <delete dir="${home}/win64/eclipse"/>
+
     <zip destfile="${home}/macosx32/iugonet-metadata-editor-macosx32.zip" basedir="${home}/macosx32/eclipse"/>
     <delete dir="${home}/macosx32/eclipse"/>
+    <zip destfile="${home}/macosx64/iugonet-metadata-editor-macosx64.zip" basedir="${home}/macosx64/eclipse"/>
+    <delete dir="${home}/macosx64/eclipse"/>
+
     <zip destfile="${home}/linux32/iugonet-metadata-editor-linux32.zip" basedir="${home}/linux32/eclipse"/>
     <delete dir="${home}/linux32/eclipse"/>
+    <zip destfile="${home}/linux64/iugonet-metadata-editor-linux64.zip" basedir="${home}/linux64/eclipse"/>
+    <delete dir="${home}/linux64/eclipse"/>
   </target>
 
 </project>
