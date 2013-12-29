@@ -20,33 +20,33 @@
     <mkdir dir="${src}" />
   </target>
 
-  <target name="eclipse" depends="eclipse_win32, eclipse_win64, eclipse_macosx32, eclipse_macosx64, eclipse_linux32, eclipse_linux64"/>
+  <target name="eclipse" depends="win32, win64, macosx32, macosx64, linux32, linux64"/>
 
-  <target name="eclipse_win32" description="Create eclipse_win32">
+  <target name="win32" description="Create eclipse_win32">
     <mkdir dir="${home}/win32"/>
     <get src="${src_eclipse_win32}" dest="${dst_eclipse_win32}" usetimestamp="true"/>
     <unzip src="${dst_eclipse_win32}" dest="${home}/win32"/>
   </target>
 
-  <target name="eclipse_win64" description="Create eclipse_win64">
+  <target name="win64" description="Create eclipse_win64">
     <mkdir dir="${home}/win64"/>
     <get src="${src_eclipse_win64}" dest="${dst_eclipse_win64}" usetimestamp="true"/>
     <unzip src="${dst_eclipse_win64}" dest="${home}/win64"/>
   </target>
 
-  <target name="eclipse_macosx32" description="Create eclipse_macosx32">
+  <target name="macosx32" description="Create eclipse_macosx32">
     <mkdir dir="${home}/macosx32"/>
     <get src="${src_eclipse_macosx32}" dest="${dst_eclipse_macosx32}" usetimestamp="true"/>
     <untar src="${dst_eclipse_macosx32}" dest="${home}/macosx32" compression="gzip"/>
   </target>
 
-  <target name="eclipse_macosx64" description="Create eclipse_macosx64">
+  <target name="macosx64" description="Create eclipse_macosx64">
     <mkdir dir="${home}/macosx64"/>
     <get src="${src_eclipse_macosx64}" dest="${dst_eclipse_macosx64}" usetimestamp="true"/>
     <untar src="${dst_eclipse_macosx64}" dest="${home}/macosx64" compression="gzip"/>
   </target>
 
-  <target name="eclipse_linux32" description="Create eclipse_linux32">
+  <target name="linux32" description="Create eclipse_linux32">
     <mkdir dir="${home}/linux32"/>
     <get src="${src_eclipse_linux32}" dest="${dst_eclipse_linux32}" usetimestamp="true"/>
     <untar src="${dst_eclipse_linux32}" dest="${home}/linux32" compression="gzip"/>
@@ -55,7 +55,7 @@
     </exec>
   </target>
 
-  <target name="eclipse_linux64" description="Create eclipse_linux64">
+  <target name="linux64" description="Create eclipse_linux64">
     <mkdir dir="${home}/linux64"/>
     <get src="${src_eclipse_linux64}" dest="${dst_eclipse_linux64}" usetimestamp="true"/>
     <untar src="${dst_eclipse_linux64}" dest="${home}/linux64" compression="gzip"/>
