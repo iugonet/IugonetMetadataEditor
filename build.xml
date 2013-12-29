@@ -50,18 +50,12 @@
     <mkdir dir="${home}/linux32"/>
     <get src="${src_eclipse_linux32}" dest="${dst_eclipse_linux32}" usetimestamp="true"/>
     <untar src="${dst_eclipse_linux32}" dest="${home}/linux32" compression="gzip"/>
-    <exec executable="chmod">
-      <arg line="+x ${home}/linux32/eclipse/eclipse ${home}/linux32/eclipse/libcairo-swt.so"/>
-    </exec>
   </target>
 
   <target name="linux64" description="Create eclipse_linux64">
     <mkdir dir="${home}/linux64"/>
     <get src="${src_eclipse_linux64}" dest="${dst_eclipse_linux64}" usetimestamp="true"/>
     <untar src="${dst_eclipse_linux64}" dest="${home}/linux64" compression="gzip"/>
-    <exec executable="chmod">
-      <arg line="+x ${home}/linux64/eclipse/eclipse ${home}/linux64/eclipse/libcairo-swt.so"/>
-    </exec>
   </target>
 
   <target name="workspace" description="Install workspace">
