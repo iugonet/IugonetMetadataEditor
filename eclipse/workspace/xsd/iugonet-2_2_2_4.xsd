@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.spase-group.org/data/schema"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:spase="http://www.spase-group.org/data/schema" xmlns:orcid="http://www.orcid.org/ns/orcid"
+	xmlns:datacite="http://datacite.org/schema/kernel-3">
+
+	<xsd:import schemaLocation="orcid-message-1.0.10.xsd"
+		namespace="http://www.orcid.org/ns/orcid">
+	</xsd:import>
+
+	<xsd:import schemaLocation="metadata.xsd"
+		namespace="http://datacite.org/schema/kernel-3"></xsd:import>
+
+	<xsd:redefine schemaLocation="spase-2_2_2.xsd">
+		<xsd:complexType name="AccessInformation">
+			<xsd:complexContent>
+				<xsd:extension base="spase:AccessInformation">
+					<xsd:sequence>
+						<xsd:element name="Description" type="xsd:string"
+							maxOccurs="1" minOccurs="0" />
+						<xsd:element name="DOI" type="datacite:doiType"
+							minOccurs="0" maxOccurs="unbounded" />
+						<xsd:element name="license" type="xsd:anyURI"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+
+		<xsd:complexType name="Catalog">
+			<xsd:complexContent>
+				<xsd:extension base="spase:Catalog">
+					<xsd:sequence>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+
+		<xsd:complexType name="DisplayData">
+			<xsd:complexContent>
+				<xsd:extension base="spase:DisplayData">
+					<xsd:sequence>
+						<xsd:element ref="spase:SpatialCoverage" minOccurs="0"
+							maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+
+		<xsd:complexType name="NumericalData">
+			<xsd:complexContent>
+				<xsd:extension base="spase:NumericalData">
+					<xsd:sequence>
+						<xsd:element ref="spase:SpatialCoverage" minOccurs="0"
+							maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+
+		<xsd:complexType name="Granule">
+			<xsd:complexContent>
+				<xsd:extension base="spase:Granule">
+					<xsd:sequence>
+						<xsd:element ref="spase:SpatialCoverage" maxOccurs="1"
+							minOccurs="0" />
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+
+		<xsd:complexType name="Person">
+			<xsd:complexContent>
+				<xsd:extension base="spase:Person">
+					<xsd:sequence>
+						<xsd:element ref="orcid:orcid-id" minOccurs="0"
+							maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:redefine>
+
+	<xsd:element name="SpatialCoverage" type="spase:SpatialCoverage"></xsd:element>
+
+	<xsd:complexType name="SpatialCoverage">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This complex type is
+				for the spatial coverage at the
+				ground-based observation.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CoordinateSystem" type="spase:CoordinateSystem">
+			</xsd:element>
+			<xsd:element name="NorthernmostLatitude" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="SouthernmostLatitude" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="EasternmostLongitude" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="WesternmostLongitude" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="CenterLatitude" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="CenterLongitude" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="Unit" type="xsd:string" minOccurs="0"
+				maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="MinimumAltitude" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="MaximumAltitude" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="Reference" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="Description" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>
