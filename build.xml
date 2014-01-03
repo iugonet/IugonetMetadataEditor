@@ -6,6 +6,12 @@
 
   <target name="all" depends="clean, init, eclipse, workspace, pack" description="Install all"/>
 
+  <target name="install" description="Install zip packages">
+    <move todir="${install_dir}">
+      <fileset dir="${tools}" />
+    </move>
+  </target>
+
   <target name="clean" description="Clean all.">
     <delete dir="${tools}" />
   </target>
